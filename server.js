@@ -7,6 +7,7 @@ var server = http.createServer(function(request, response){
   var parsedUrl = url.parse(request.url);
   console.log(parsedUrl);
   var parsedQuery = querystring.parse(parsedUrl.query, '&', '=');
+  console.log(parsedQuery);
   console.log('--- log end ---');
   response.writeHead(200, {'Content-Type':'text/html'});
   response.end('Hello node.js!!');
