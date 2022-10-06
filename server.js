@@ -20,7 +20,7 @@ var server = http.createServer(function(request, response){
       var data = querystring.parse(chunk.toString());
       //querystring 안의 parse 함수를 이용하여 파싱한다. 
       response.writeHead(200, {'Content-Type' : 'text/html'});
-      response.end('ID : ' + data.id + 'PW : ' + data.pw);
+      response.end('ID : ' + data.id + ' PW : ' + data.pw + ' Submit : ' + data.submit);
     });
   }
 }).listen(port, function(){
