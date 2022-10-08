@@ -3,6 +3,21 @@ var fs = require('fs');
 var querystring = require('querystring');
 const port = 3000;
 
+const fs1 = require('fs');
+  fs1.readFile('./customer.json', 'utf8', (err, data) => {
+    if (err){
+      console.log('File read failed:', err);
+      return;
+    }
+    try{
+      const customer = JSON.parse(data);
+      console.log('Customer address is:', customer.address);
+    } catch(err){
+      console.log('Error parsing JSON:', err);
+    }
+    console.log('File data:', data);
+  });
+
 var server = http.createServer(function(request, response){
 
   if (request.method == 'GET'){
