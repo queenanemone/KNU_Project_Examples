@@ -4,19 +4,25 @@ var querystring = require('querystring');
 const port = 3000;
 
 const fs1 = require('fs');
-  fs1.readFile('./customer.json', 'utf8', (err, data) => {
-    if (err){
-      console.log('File read failed:', err);
-      return;
-    }
-    try{
-      const customer = JSON.parse(data);
-      console.log('Customer address is:', customer.address);
-    } catch(err){
-      console.log('Error parsing JSON:', err);
-    }
-    console.log('File data:', data);
-  });
+// fs1이라는 변수 설정
+fs1.readFile('./customer.json', 'utf8', (err, data) => {
+  // fs의 함수 중 하나인 readFile을 사용, customer.json 파일을 받아온다.
+  if (err){
+    // 에러 처리
+    console.log('File read failed:', err);
+    return;
+  }
+  try{ // try ... catch 문
+    const customer = JSON.parse(data);
+    // 새로운 변수 customer을 이용하여 data를 JSON 파싱한다.
+    console.log('Customer address is:', customer.address);
+    // 그 중, 주소(address)만 사용하기 위한 명령어
+  } catch(err){
+    console.log('Error parsing JSON:', err);
+  }
+  console.log('File data:', data);
+  // data 전체 출력
+});
 
 var server = http.createServer(function(request, response){
 
